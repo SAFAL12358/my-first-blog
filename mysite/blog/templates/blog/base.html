@@ -10,6 +10,12 @@
     </head>
     <body>
     <div class="page-header">
+        {% if not user.is_authenticated %} 
+        <div class="register"><a href="{% url 'register' %}" style="color: red;">Register</a></div>
+       
+        <div class="login"><a href="{% url 'login' %}" style="color: red;">LOGIN</a></div>
+        {% endif %}
+         {% if user.is_authenticated %}    <div class="logout"><a href="{% url 'logout' %}" style="color: red;">LOGOUT</a></div>{% endif %}
       {% if user.is_authenticated %}
     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 {% endif %}
@@ -17,7 +23,7 @@
     </div>
     <div class="content container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-sm-12">
             {% block content %}
             {% endblock %}
             </div>

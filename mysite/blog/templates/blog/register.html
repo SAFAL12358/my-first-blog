@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+	<h3>If you are returning to this page that means username or email address already exist OR ELSE IGNORE</h3>
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
